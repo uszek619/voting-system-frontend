@@ -12,8 +12,9 @@ function VoteDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchVote();
-  }, [id]);
+  fetchVote();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [id]);
 
   const fetchVote = async () => {
     try {
@@ -44,14 +45,14 @@ function VoteDetails() {
     }
   };
 
-  const handleViewResults = async () => {
-    try {
-      const response = await api.get(`/votes/${id}/results/`);
-      setVote(response.data);
-    } catch (err) {
-      console.error('Błąd', err);
-    }
-  };
+ // const handleViewResults = async () => {
+  //  try {
+  //    const response = await api.get(`/votes/${id}/results/`);
+   //   setVote(response.data);
+  //  } catch (err) {
+  //    console.error('Błąd', err);
+ //   }
+//  };
 
   if (loading) return <div className="container"><p>Ładowanie...</p></div>;
   if (!vote) return <div className="container"><p>Głosowanie nie znalezione</p></div>;

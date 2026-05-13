@@ -9,8 +9,9 @@ function Votes() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchVotes();
-  }, [filter]);
+  fetchVotes();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [filter]);
 
   const fetchVotes = async () => {
     try {
